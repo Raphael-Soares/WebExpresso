@@ -4,7 +4,7 @@ import logo from "../assets/logodark.svg";
 
 import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled.nav`
     background-color: #f5f1edff;
 
     display: flex;
@@ -59,10 +59,10 @@ function Navbar() {
         <Container>
             <Logo src={logo} />
             <Menu>
-                <MenuItem href="#">Sobre nós</MenuItem>
+                <MenuItem href="#about">Sobre nós</MenuItem>
                 <MenuItem href="#">Serviços</MenuItem>
                 <MenuItem href="#">Portifólio</MenuItem>
-                <MenuItem href="#">Depoimentos</MenuItem>
+
                 <MenuItem href="#">Preços</MenuItem>
                 <MenuItem href="#">Contato</MenuItem>
             </Menu>
