@@ -19,8 +19,21 @@ function App() {
             <Servicos />
             <Sobre />
             <Portfolio />
-            <SobreLandingPages />
-            <Preco />
+
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+
+                    margin: "0 auto",
+                    padding: "0 5vw",
+                }}
+            >
+                <SobreLandingPages />
+                <Preco />
+            </div>
 
             <Footer />
         </div>

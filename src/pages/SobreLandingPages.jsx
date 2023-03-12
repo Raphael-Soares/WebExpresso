@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 const SobreLandingPagesWrapper = styled.div`
-p
-    margin: 0 auto;
-    padding:8vw;
+    width: 100%;
 `;
 
 const Titulo = styled.h2`
