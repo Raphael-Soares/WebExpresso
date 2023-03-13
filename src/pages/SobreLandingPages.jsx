@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const SobreLandingPagesWrapper = styled.div`
     width: 100%;
+    padding-right: 5em;
 `;
 
 const Titulo = styled.h2`
@@ -10,8 +11,9 @@ const Titulo = styled.h2`
 `;
 
 const Texto = styled.p`
-    font-size: 1.2rem;
-    line-height: 1.5;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
 `;
 
 function SobreLandingPages() {

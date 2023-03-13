@@ -25,7 +25,7 @@ function App() {
                     display: "flex",
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    alignItems: "center",
+                    alignItems: "start",
 
                     margin: "0 auto",
                     padding: "0 5vw",

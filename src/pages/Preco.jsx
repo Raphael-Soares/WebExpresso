@@ -4,27 +4,42 @@ import styled from "styled-components";
 const PriceContainer = styled.div`
     background-color: #fff;
     border-radius: 10px;
-    padding: 20px;
     margin-bottom: 20px;
 `;
 
 const PriceTitle = styled.h2`
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    margin-bottom: 20px;
 `;
 
 const PriceSubtitle = styled.p`
     font-size: 18px;
     color: #666;
-    margin-bottom: 10px;
 `;
 
 const Price = styled.p`
     font-size: 36px;
     font-weight: bold;
     color: #0018f2;
+    margin: 0;
     margin-bottom: 10px;
+`;
+
+const PriceText = styled.p`
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+
+    font-size: 18px;
+    margin-right: 0.5em;
+`;
+
+const PriceWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+    /* border: 1px solid #0018f2; */
 `;
 
 const PriceButton = styled.button`
@@ -48,9 +63,14 @@ const PriceComponent = () => {
         <PriceContainer>
             <PriceTitle>Planos para o seu negócio</PriceTitle>
             <PriceSubtitle>Desenvolvimento de landing pages personalizadas</PriceSubtitle>
-            <Price>R$ 100,00</Price>
+
+            <PriceWrapper>
+                <PriceText>À partir de</PriceText>
+                <Price>R$ 100,00</Price>
+            </PriceWrapper>
+
             <PriceButton onClick={() => alert("Entre em contato para mais informações!")}>
-                Obtenha um orçamento
+                Peça um orçamento
             </PriceButton>
         </PriceContainer>
     );
