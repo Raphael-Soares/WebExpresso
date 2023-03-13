@@ -15,14 +15,11 @@ const ServicosWrapper = styled.div`
 `;
 
 const ServicoCard = styled.div`
-    background-color: #f5f1edff;
-    color: #121212;
+    background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
     padding: 30px;
     text-align: center;
-    overflow: hidden;
 `;
 
 const ServicoImg = styled.img`

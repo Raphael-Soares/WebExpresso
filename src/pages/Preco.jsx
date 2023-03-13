@@ -23,12 +23,12 @@ const PriceSubtitle = styled.p`
 const Price = styled.p`
     font-size: 36px;
     font-weight: bold;
-    color: #f63a3a;
+    color: #0018f2;
     margin-bottom: 10px;
 `;
 
 const PriceButton = styled.button`
-    background-color: #f63a3a;
+    background-color: #0018f2;
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
@@ -39,7 +39,7 @@ const PriceButton = styled.button`
     transition: background-color 0.2s ease-in-out;
 
     &:hover {
-        background-color: #c92c2c;
+        background-color: #0013bb;
     }
 `;
 
