@@ -30,8 +30,9 @@ const Logo = styled.img`
 
 const Menu = styled.div`
     display: flex;
-    width: 50%;
+    width: 100%;
     justify-content: space-between;
+    flex-direction: row;
     align-items: center;
 
     @media (max-width: 768px) {
@@ -60,7 +61,7 @@ const MenuButton = styled.button`
     border: solid 1px #121212;
     border-radius: 50px;
 
-    width: 200px;
+    width: 30em;
 
     padding: 10px 20px;
 
@@ -71,12 +72,14 @@ const MenuButton = styled.button`
     font-family: "Courier New", Courier, monospace;
 
     @media (max-width: 768px) {
+        margin: 1em;
         width: 100%;
     }
 `;
 
 function Navbar() {
-    const [menuOpen, setMenuOpen] = useState(true);
+    const windowWidth = window.innerWidth;
+    const [menuOpen, setMenuOpen] = useState(windowWidth > 768 ? true : false);
 
     return (
         <Container>
@@ -86,12 +89,18 @@ function Navbar() {
                     justifyContent: "space-between",
                     alignItems: "center",
                     gap: "10px",
-                    width: "100%",
+                    width: windowWidth > 768 ? "50%" : "100%",
                 }}
             >
                 <Logo src={logo} />
 
-                <AiOutlineMenu size="2em" onClick={() => setMenuOpen(!menuOpen)} />
+                <AiOutlineMenu
+                    size="2em"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    style={{
+                        display: windowWidth > 768 ? "none" : "block",
+                    }}
+                />
             </div>
 
             {menuOpen && (
