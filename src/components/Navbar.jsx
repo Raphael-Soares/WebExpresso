@@ -1,8 +1,10 @@
-import React from "react";
+import { useState } from "react";
 
 import logo from "../assets/logodark.svg";
 
 import styled from "styled-components";
+
+import { AiOutlineMenu } from "react-icons/ai";
 
 const Container = styled.nav`
     background-color: #f5f1edff;
@@ -16,10 +18,14 @@ const Container = styled.nav`
     gap: 10%;
 
     font-family: "Courier New", Courier, monospace;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 const Logo = styled.img`
-    width: 15%;
+    width: 10em;
 `;
 
 const Menu = styled.div`
@@ -28,7 +34,12 @@ const Menu = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    /* border: solid 1px; */
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+
+        width: 100%;
+    }
 `;
 
 const MenuItem = styled.div`
@@ -36,6 +47,12 @@ const MenuItem = styled.div`
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
+
+    @media (max-width: 768px) {
+        margin: 10px 0;
+        font-family: "Helvetica", sans-serif;
+        font-size: 18px;
+    }
 `;
 
 const MenuButton = styled.button`
@@ -52,20 +69,40 @@ const MenuButton = styled.button`
     font-size: 16px;
 
     font-family: "Courier New", Courier, monospace;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 function Navbar() {
+    const [menuOpen, setMenuOpen] = useState(true);
+
     return (
         <Container>
-            <Logo src={logo} />
-            <Menu>
-                <MenuItem href="#about">Sobre nós</MenuItem>
-                <MenuItem href="#">Serviços</MenuItem>
-                <MenuItem href="#">Portifólio</MenuItem>
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    gap: "10px",
+                    width: "100%",
+                }}
+            >
+                <Logo src={logo} />
 
-                <MenuItem href="#">Preços</MenuItem>
-                <MenuItem href="#">Contato</MenuItem>
-            </Menu>
+                <AiOutlineMenu size="2em" onClick={() => setMenuOpen(!menuOpen)} />
+            </div>
+
+            {menuOpen && (
+                <Menu>
+                    <MenuItem>Home</MenuItem>
+                    <MenuItem>Services</MenuItem>
+                    <MenuItem>Portfolio</MenuItem>
+                    <MenuItem>About</MenuItem>
+                    <MenuItem>Contact</MenuItem>
+                </Menu>
+            )}
             <MenuButton>Pedir orçamento</MenuButton>
         </Container>
     );

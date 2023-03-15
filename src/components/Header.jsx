@@ -11,6 +11,15 @@ const Container = styled.div`
     background-color: #f5f1edff;
     height: 80vh;
     padding: 0 5vw;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    @media (max-width: 480px) {
+        padding: 0 2vw;
+    }
 `;
 
 const Content = styled.div`

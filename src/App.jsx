@@ -2,13 +2,14 @@ import React from "react";
 
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 import SobreLandingPages from "./pages/SobreLandingPages";
 import Servicos from "./pages/Servicos";
 import Portfolio from "./pages/Portifolio";
 import Sobre from "./pages/Sobre";
 import Preco from "./pages/Preco";
-import Footer from "./components/Footer";
+import Form from "./pages/Form";
 
 function App() {
     return (
@@ -34,6 +35,8 @@ function App() {
                 <SobreLandingPages />
                 <Preco />
             </div>
+
+            <Form />
 
             <Footer />
         </div>
