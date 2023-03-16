@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const SobreWrapper = styled.div`
     margin: 0 auto;
-    padding: 8vw;
+    padding: 5vw;
 
     background-color: #f5f1edff;
 `;

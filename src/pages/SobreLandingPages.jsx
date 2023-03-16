@@ -3,6 +3,10 @@ import styled from "styled-components";
 const SobreLandingPagesWrapper = styled.div`
     width: 100%;
     padding-right: 5em;
+
+    @media (max-width: 768px) {
+        padding-right: 0;
+    }
 `;
 
 const Titulo = styled.h2`

@@ -1,5 +1,23 @@
 import React from "react";
 
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+    background-color: #f5f1edff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+
+    padding: 0 5vw;
+
+    @media (max-width: 768px) {
+        flex-direction: column-reverse;
+        justify-content: ;
+        height: auto;
+    }
+`;
+
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -21,20 +39,10 @@ function App() {
             <Servicos />
             <Portfolio />
 
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "start",
-
-                    margin: "0 auto",
-                    padding: "0 5vw",
-                }}
-            >
+            <Wrapper>
                 <SobreLandingPages />
                 <Preco />
-            </div>
+            </Wrapper>
 
             <Form />
 

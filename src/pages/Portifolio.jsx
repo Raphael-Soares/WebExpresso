@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import Card from "../components/Card";
+
+import Atena from "../assets/Atena.png";
+import Dracflix from "../assets/dracflix.png";
+import Dracdo from "../assets/dracdo.png";
 
 const PortfolioWrapper = styled.div`
     max-width: 1200px;
@@ -6,69 +11,28 @@ const PortfolioWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 50px;
-    padding: 50px;
-`;
-
-const ProjetoCard = styled.div`
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    text-align: center;
-`;
-
-const ProjetoTitulo = styled.h3`
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-`;
-
-const ProjetoDescricao = styled.p`
-    font-size: 1.1rem;
-    line-height: 1.5;
-`;
-
-const ProjetoImagem = styled.img`
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+    padding: 5vw;
 `;
 
 function Portfolio() {
     return (
         <PortfolioWrapper>
-            <ProjetoCard>
-                <ProjetoImagem
-                    src="https://global-uploads.webflow.com/5f84417443f34a30444f52d3/63a4a465527844196f973cbe_Desktop%20-%20Company%20home-p-1080.webp"
-                    alt="Projeto 1"
-                />
-                <ProjetoTitulo>Projeto 1</ProjetoTitulo>
-                <ProjetoDescricao>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices massa non
-                    elit feugiat bibendum.
-                </ProjetoDescricao>
-            </ProjetoCard>
-            <ProjetoCard>
-                <ProjetoImagem
-                    src="https://global-uploads.webflow.com/5f84417443f34a30444f52d3/63a4a465527844196f973cbe_Desktop%20-%20Company%20home-p-1080.webp"
-                    alt="Projeto 1"
-                />
-                <ProjetoTitulo>Projeto 2</ProjetoTitulo>
-                <ProjetoDescricao>
-                    Curabitur semper massa at turpis bibendum, non ullamcorper ipsum interdum.
-                    Praesent a arcu id tellus consectetur eleifend.
-                </ProjetoDescricao>
-            </ProjetoCard>
-            <ProjetoCard>
-                <ProjetoImagem
-                    src="https://global-uploads.webflow.com/5f84417443f34a30444f52d3/63a4a465527844196f973cbe_Desktop%20-%20Company%20home-p-1080.webp"
-                    alt="Projeto 1"
-                />
-                <ProjetoTitulo>Projeto 3</ProjetoTitulo>
-                <ProjetoDescricao>
-                    Nulla facilisi. Nunc accumsan nibh eget lacus tincidunt, eget imperdiet arcu
-                    bibendum. Maecenas euismod ultrices tortor, a luctus arcu elementum vel.
-                </ProjetoDescricao>
-            </ProjetoCard>
+            <Card
+                image={Atena}
+                title="Atena Condomínios"
+                text="O site da Atena Condomínios apresenta seus serviços de administração de condomínios, consultoria e serviços administrativos. Há uma seção com imagens e descrições breves de serviços ofertados realizados pela empresa. O site é responsivo e permite contato através de formulário ou whatsapp."
+            />
+            <Card
+                image={Dracflix}
+                title="DracFlix"
+                text="Bem-vindo à Dracflix, um projeto incrível de desenvolvimento front-end! Nós criamos uma interface primária inspirada na Netflix, com as cores do Dracula Theme para dar um ar moderno e sofisticado. 
+                Embora não tenhamos um serviço real, esperamos que você tenha gostado da nossa interface!"
+            />
+            <Card
+                image={Dracdo}
+                title="DradDo"
+                text="Aqui na Draculist, nossa lista de tarefas é perfeita para quem precisa se organizar e manter o controle de suas tarefas diárias. Com o Dracula Theme, nossa interface é moderna e elegante, tornando o gerenciamento de tarefas uma experiência mais agradável."
+            />
         </PortfolioWrapper>
     );
 }

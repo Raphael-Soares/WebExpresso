@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const PriceContainer = styled.div`
-    background-color: #fff;
-    border-radius: 10px;
     margin-bottom: 20px;
 `;
 
