@@ -77,7 +77,13 @@ const MenuButton = styled.button`
     }
 `;
 
-function Navbar() {
+function Navbar({
+    scrollToSobre,
+    scrollToServicos,
+    scrollToPortfolio,
+    scrollToPreco,
+    scrollToForm,
+}) {
     const windowWidth = window.innerWidth;
     const [menuOpen, setMenuOpen] = useState(windowWidth > 768 ? true : false);
 
@@ -105,11 +111,11 @@ function Navbar() {
 
             {menuOpen && (
                 <Menu>
-                    <MenuItem>Home</MenuItem>
-                    <MenuItem>Services</MenuItem>
-                    <MenuItem>Portfolio</MenuItem>
-                    <MenuItem>About</MenuItem>
-                    <MenuItem>Contact</MenuItem>
+                    <MenuItem onClick={scrollToSobre}>Sobre</MenuItem>
+                    <MenuItem onClick={scrollToServicos}>Serviços</MenuItem>
+                    <MenuItem onClick={scrollToPortfolio}>Portfólio</MenuItem>
+                    <MenuItem onClick={scrollToPreco}>Preço</MenuItem>
+                    <MenuItem onClick={scrollToForm}>Contato</MenuItem>
                 </Menu>
             )}
             <MenuButton>Pedir orçamento</MenuButton>
