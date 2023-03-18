@@ -8,6 +8,12 @@ const ContactContainer = styled.div`
     align-items: center;
     background-color: #f5f1edff;
     padding: 20px 5vw;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
 `;
 
 const ContactItem = styled.div`

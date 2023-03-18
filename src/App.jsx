@@ -101,11 +101,11 @@ function App() {
             <Portfolio />
 
             <div ref={precoRef}></div>
-            <div ref={contatoRef}></div>
             <Wrapper>
                 <SobreLandingPages />
                 <Preco scrollToForm={scrollToForm} />
             </Wrapper>
+            <div ref={contatoRef}></div>
             <Contato />
 
             <div ref={formRef}></div>
