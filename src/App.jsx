@@ -27,6 +27,7 @@ import Servicos from "./pages/Servicos";
 import Portfolio from "./pages/Portifolio";
 import Sobre from "./pages/Sobre";
 import Preco from "./pages/Preco";
+import Contato from "./pages/Contato";
 import Form from "./pages/Form";
 
 function App() {
@@ -34,6 +35,8 @@ function App() {
     const sobreRef = useRef(null);
     const servicosRef = useRef(null);
     const portfolioRef = useRef(null);
+
+    const contatoRef = useRef(null);
     const formRef = useRef(null);
 
     function scrollTo(ref) {
@@ -60,7 +63,11 @@ function App() {
     }
 
     function scrollToForm() {
-        scrollToTop();
+        scrollTo(formRef.current.offsetTop);
+    }
+
+    function scrollToContato() {
+        scrollTo(contatoRef.current.offsetTop);
     }
 
     function scrollToTop() {
@@ -79,6 +86,7 @@ function App() {
                     scrollToPortfolio={scrollToPortfolio}
                     scrollToPreco={scrollToPreco}
                     scrollToForm={scrollToForm}
+                    scrollToContato={scrollToContato}
                 />
             }
             <Header />
@@ -93,10 +101,12 @@ function App() {
             <Portfolio />
 
             <div ref={precoRef}></div>
+            <div ref={contatoRef}></div>
             <Wrapper>
                 <SobreLandingPages />
-                <Preco />
+                <Preco scrollToForm={scrollToForm} />
             </Wrapper>
+            <Contato />
 
             <div ref={formRef}></div>
             <Form />

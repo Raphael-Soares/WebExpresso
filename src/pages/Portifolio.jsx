@@ -30,8 +30,8 @@ function Portfolio() {
             />
             <Card
                 image={Dracdo}
-                title="DradDo"
-                text="Aqui na Draculist, nossa lista de tarefas é perfeita para quem precisa se organizar e manter o controle de suas tarefas diárias. Com o Dracula Theme, nossa interface é moderna e elegante, tornando o gerenciamento de tarefas uma experiência mais agradável."
+                title="DracDo"
+                text="Aqui na DracDo, nossa lista de tarefas é perfeita para quem precisa se organizar e manter o controle de suas tarefas diárias. Com o Dracula Theme, nossa interface é moderna e elegante, tornando o gerenciamento de tarefas uma experiência mais agradável."
             />
         </PortfolioWrapper>
     );

@@ -92,15 +92,10 @@ function InputGroup({ id, label, type = "text", required = false }) {
 
 function Form() {
     const formRef = useRef();
-    const [form, setForm] = useState({});
 
     const serviceID = "service_amgsmvp";
     const templateID = "template_a9k2w7v";
     const userID = "W1NXJfm2l6E3WbKxh";
-
-    function changeForm(e) {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    }
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -122,7 +117,6 @@ function Form() {
     return (
         <Container id="form" ref={formRef} onSubmit={handleSubmit}>
             <Title>Solicite um orçamento para o seu site dos sonhos</Title>
-            <p>Todos os campos são obrigatórios</p>
 
             <InputGroup id="nome" label="Nome" required={true} />
             <InputGroup id="email" label="Email" type="email" required={true} />
@@ -130,6 +124,7 @@ function Form() {
             <InputGroup id="nome_empresa" label="Nome da empresa" required={true} />
             <InputGroup id="desc_empresa" label="Descrição da empresa" required={true} />
 
+            <p>Todos os campos são obrigatórios</p>
             <div
                 style={{
                     display: "flex",

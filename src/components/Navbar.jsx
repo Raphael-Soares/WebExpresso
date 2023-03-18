@@ -83,6 +83,7 @@ function Navbar({
     scrollToPortfolio,
     scrollToPreco,
     scrollToForm,
+    scrollToContato,
 }) {
     const windowWidth = window.innerWidth;
     const [menuOpen, setMenuOpen] = useState(windowWidth > 768 ? true : false);
@@ -115,10 +116,10 @@ function Navbar({
                     <MenuItem onClick={scrollToServicos}>Serviços</MenuItem>
                     <MenuItem onClick={scrollToPortfolio}>Portfólio</MenuItem>
                     <MenuItem onClick={scrollToPreco}>Preço</MenuItem>
-                    <MenuItem onClick={scrollToForm}>Contato</MenuItem>
+                    <MenuItem onClick={scrollToContato}>Contato</MenuItem>
                 </Menu>
             )}
-            <MenuButton>Pedir orçamento</MenuButton>
+            <MenuButton oonClick={scrollToForm}>Pedir orçamento</MenuButton>
         </Container>
     );
 }

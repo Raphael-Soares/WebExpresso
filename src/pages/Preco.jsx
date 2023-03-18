@@ -56,7 +56,7 @@ const PriceButton = styled.button`
     }
 `;
 
-const PriceComponent = () => {
+function Preco({ scrollToForm }) {
     return (
         <PriceContainer>
             <PriceTitle>Planos para o seu negócio</PriceTitle>
@@ -67,11 +67,9 @@ const PriceComponent = () => {
                 <Price>R$ 100,00</Price>
             </PriceWrapper>
 
-            <PriceButton onClick={() => alert("Entre em contato para mais informações!")}>
-                Peça um orçamento
-            </PriceButton>
+            <PriceButton onClick={scrollToForm}>Peça um orçamento</PriceButton>
         </PriceContainer>
     );
-};
+}
 
-export default PriceComponent;
+export default Preco;
