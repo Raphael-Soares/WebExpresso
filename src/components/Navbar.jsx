@@ -119,7 +119,7 @@ function Navbar({
                     <MenuItem onClick={scrollToContato}>Contato</MenuItem>
                 </Menu>
             )}
-            <MenuButton oonClick={scrollToForm}>Pedir orçamento</MenuButton>
+            <MenuButton onClick={scrollToForm}>Pedir orçamento</MenuButton>
         </Container>
     );
 }
