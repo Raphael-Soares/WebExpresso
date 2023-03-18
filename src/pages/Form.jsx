@@ -5,6 +5,7 @@ import InputGroup from "../components/InputGroup";
 
 import styled from "styled-components";
 import CheckGroup from "../components/CheckGroup";
+import Alerta from "../components/Alerta";
 
 const Container = styled.form`
     display: flex;
@@ -60,9 +61,18 @@ const Button = styled.button`
 function Form() {
     const formRef = useRef();
 
+    const [alert, setAlert] = useState(false);
+
     const serviceID = "service_amgsmvp";
     const templateID = "template_a9k2w7v";
     const userID = "W1NXJfm2l6E3WbKxh";
+
+    function showAlert() {
+        setAlert(true);
+        setTimeout(() => {
+            setAlert(false);
+        }, 5000);
+    }
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -78,7 +88,7 @@ function Form() {
             }
         );
 
-        // console.log(form);
+        console.log(formRef.current);
     }
 
     return (
@@ -111,6 +121,8 @@ function Form() {
                     <CheckGroup id="wpp" label="Botão Whatssap" />
                 </div>
             </Row>
+
+            {alert && <Alerta />}
 
             <div
                 style={{
