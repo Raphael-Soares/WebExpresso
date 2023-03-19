@@ -2,10 +2,14 @@ import { useState, useRef } from "react";
 import emailjs from "emailjs-com";
 
 import InputGroup from "../components/InputGroup";
-
-import styled from "styled-components";
 import CheckGroup from "../components/CheckGroup";
 import Alerta from "../components/Alerta";
+
+import styled from "styled-components";
+
+const serviceID = "service_amgsmvp";
+const templateID = "template_a9k2w7v";
+const userID = "W1NXJfm2l6E3WbKxh";
 
 const Container = styled.form`
     display: flex;
@@ -63,9 +67,34 @@ function Form() {
 
     const [alert, setAlert] = useState(false);
 
-    const serviceID = "service_amgsmvp";
-    const templateID = "template_a9k2w7v";
-    const userID = "W1NXJfm2l6E3WbKxh";
+    const [form, setForm] = useState({
+        nome: "",
+        email: "",
+        telefone: "",
+        empresa: "",
+        desc_empresa: "",
+        capa_rotativa: false,
+        servicos: false,
+        portifolio: false,
+        galeria: false,
+        mapa: false,
+        contato: false,
+        wpp: false,
+    });
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        emailjs.sendForm(serviceID, templateID, formRef.current, userID).then(
+            (result) => {
+                console.log(result.text);
+                showAlert();
+            },
+            (error) => {
+                console.log(error.text);
+            }
+        );
+    }
 
     function showAlert() {
         setAlert(true);
@@ -74,21 +103,12 @@ function Form() {
         }, 5000);
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
+    function handleChange(e) {
+        setForm({ ...form, [e.target.id]: e.target.value });
+    }
 
-        emailjs.sendForm(serviceID, templateID, formRef.current, userID).then(
-            (result) => {
-                console.log(result.text);
-                document.getElementById("form").reset();
-                showAlert();
-            },
-            (error) => {
-                console.log(error.text);
-            }
-        );
-
-        console.log(formRef.current);
+    function handleCheck(e) {
+        setForm({ ...form, [e.target.id]: e.target.checked });
     }
 
     return (
@@ -96,29 +116,90 @@ function Form() {
             <Row>
                 <div>
                     <Subtitle>Solicite um orçamento para o seu site dos sonhos</Subtitle>
-                    <InputGroup id="nome" label="Nome*" required={true} />
-                    <InputGroup id="email" label="Email*" type="email" required={true} />
-                    <InputGroup id="telefone" label="Telefone*" required={true} />
-                    <InputGroup id="nome_empresa" label="Nome da empresa*" required={true} />
+                    <InputGroup
+                        id="nome"
+                        label="Nome*"
+                        required={true}
+                        onChange={handleChange}
+                        value={form.nome}
+                    />
+
+                    <InputGroup
+                        id="email"
+                        label="Email*"
+                        required={true}
+                        onChange={handleChange}
+                        value={form.email}
+                    />
+
+                    <InputGroup
+                        id="telefone"
+                        label="Telefone*"
+                        required={true}
+                        value={form.telefone}
+                        onChange={handleChange}
+                    />
+
+                    <InputGroup
+                        id="empresa"
+                        label="Nome da empresa"
+                        required={true}
+                        value={form.empresa}
+                        onChange={handleChange}
+                    />
+
                     <InputGroup
                         id="desc_empresa"
-                        label="Fale um pouco sobre a empresa*"
+                        label="Descrição da empresa"
                         required={true}
+                        value={form.desc_empresa}
+                        onChange={handleChange}
                     />
+
                     <p> * Campos obrigatórios</p>
                 </div>
 
                 <div>
                     <Subtitle>O que você gostaria de ter na sua página?</Subtitle>
 
-                    <CheckGroup id="capa_rotativa" label="Capa rotativa" />
-                    <CheckGroup id="servicos" label="Serviços oferecidos" />
+                    <CheckGroup
+                        id="capa_rotativa"
+                        label="Capa rotativa"
+                        onChange={handleCheck}
+                        value={form.capa_rotativa}
+                    />
+                    <CheckGroup
+                        id="servicos"
+                        label="Serviços oferecidos"
+                        onChange={handleCheck}
+                        value={form.servicos}
+                    />
 
-                    <CheckGroup id="portifolio" label="Portifolio" />
-                    <CheckGroup id="galeria" label="Exibir uma galeria de fotos" />
-                    <CheckGroup id="mapa" label="Localização no mapa" />
-                    <CheckGroup id="contato" label="Formulário de orçamento" />
-                    <CheckGroup id="wpp" label="Botão Whatssap" />
+                    <CheckGroup
+                        id="portifolio"
+                        label="Portifolio"
+                        onChange={handleCheck}
+                        value={form.portifolio}
+                    />
+                    <CheckGroup
+                        id="galeria"
+                        label="Exibir uma galeria de fotos"
+                        value={form.galeria}
+                        onChange={handleCheck}
+                    />
+                    <CheckGroup
+                        id="mapa"
+                        label="Localização no mapa"
+                        onChange={handleCheck}
+                        value={form.mapa}
+                    />
+                    <CheckGroup
+                        id="contato"
+                        label="Formulário de orçamento"
+                        value={form.contato}
+                        onChange={handleCheck}
+                    />
+                    <CheckGroup id="wpp" label="Botão Whatsapp" onChange={handleCheck} />
                 </div>
             </Row>
 
@@ -132,7 +213,7 @@ function Form() {
                 }}
             >
                 <Button type="reset">Cancelar</Button>
-                <Button type="submit">Solicitar orçamento</Button>
+                <Button type="submit">Enviar</Button>
             </div>
         </Container>
     );

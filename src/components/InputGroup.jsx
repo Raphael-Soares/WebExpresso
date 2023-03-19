@@ -17,7 +17,7 @@ const Input = styled.input`
     }
 `;
 
-function InputGroup({ id, label, type = "text", required = false }) {
+function InputGroup({ id, label, type = "text", required = false, onChange }) {
     return (
         <div
             style={{
@@ -28,7 +28,7 @@ function InputGroup({ id, label, type = "text", required = false }) {
         >
             <Label htmlFor={id}>{label}</Label>
 
-            <Input id={id} name={id} type={type} required={required} />
+            <Input id={id} name={id} type={type} required={required} onChange={onChange} />
         </div>
     );
 }
