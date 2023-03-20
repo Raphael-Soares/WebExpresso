@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useCallback, useRef, lazy, Suspense } from "react";
 
 import styled from "styled-components";
 
@@ -18,17 +18,17 @@ const Wrapper = styled.div`
     }
 `;
 
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+const Navbar = lazy(() => import("./components/Navbar"));
+const Header = lazy(() => import("./components/Header"));
+const Footer = lazy(() => import("./components/Footer"));
 
-import SobreLandingPages from "./pages/SobreLandingPages";
-import Servicos from "./pages/Servicos";
-import Portfolio from "./pages/Portifolio";
-import Sobre from "./pages/Sobre";
-import Preco from "./pages/Preco";
-import Contato from "./pages/Contato";
-import Form from "./pages/Form";
+const SobreLandingPages = lazy(() => import("./pages/SobreLandingPages"));
+const Servicos = lazy(() => import("./pages/Servicos"));
+const Portfolio = lazy(() => import("./pages/Portifolio"));
+const Sobre = lazy(() => import("./pages/Sobre"));
+const Preco = lazy(() => import("./pages/Preco"));
+const Contato = lazy(() => import("./pages/Contato"));
+const Form = lazy(() => import("./pages/Form"));
 
 function App() {
     const precoRef = useRef(null);
@@ -39,36 +39,36 @@ function App() {
     const contatoRef = useRef(null);
     const formRef = useRef(null);
 
-    function scrollTo(ref) {
+    const scrollTo = useCallback((ref) => {
         window.scrollTo({
             top: ref,
             behavior: "smooth",
         });
-    }
+    }, []);
 
-    function scrollToSobre() {
+    const scrollToSobre = useCallback(() => {
         scrollTo(sobreRef.current.offsetTop);
-    }
+    }, [scrollTo]);
 
-    function scrollToServicos() {
+    const scrollToServicos = useCallback(() => {
         scrollTo(servicosRef.current.offsetTop);
-    }
+    }, [scrollTo]);
 
-    function scrollToPortfolio() {
+    const scrollToPortfolio = useCallback(() => {
         scrollTo(portfolioRef.current.offsetTop);
-    }
+    }, [scrollTo]);
 
-    function scrollToPreco() {
+    const scrollToPreco = useCallback(() => {
         scrollTo(precoRef.current.offsetTop);
-    }
+    }, [scrollTo]);
 
-    function scrollToForm() {
+    const scrollToForm = useCallback(() => {
         scrollTo(formRef.current.offsetTop);
-    }
+    }, [scrollTo]);
 
-    function scrollToContato() {
+    const scrollToContato = useCallback(() => {
         scrollTo(contatoRef.current.offsetTop);
-    }
+    }, [scrollTo]);
 
     function scrollToTop() {
         window.scrollTo({
