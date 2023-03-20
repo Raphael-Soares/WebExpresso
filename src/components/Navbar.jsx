@@ -1,22 +1,16 @@
-import { useState } from "react";
-
-import logo from "../assets/logodark.svg";
-
+import { useState, useEffect } from "react";
 import styled from "styled-components";
-
+import logo from "../assets/logodark.svg";
 import { AiOutlineMenu } from "react-icons/ai";
 
 const Container = styled.nav`
     background-color: #f5f1edff;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     font-weight: bold;
-    padding: 0 5dvw;
+    padding: 0 5vw;
     gap: 10%;
-
     font-family: "Courier New", Courier, monospace;
 
     @media (max-width: 768px) {
@@ -38,7 +32,6 @@ const Menu = styled.div`
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: flex-start;
-
         width: 100%;
     }
 `;
@@ -60,15 +53,11 @@ const MenuButton = styled.button`
     background-color: #f5f1edff;
     border: solid 1px #121212;
     border-radius: 50px;
-
     width: 30em;
-
     padding: 10px 20px;
-
     color: #121212;
     cursor: pointer;
     font-size: 16px;
-
     font-family: "Courier New", Courier, monospace;
 
     @media (max-width: 768px) {
@@ -85,8 +74,16 @@ function Navbar({
     scrollToForm,
     scrollToContato,
 }) {
-    const windowWidth = window.innerWidth;
-    const [menuOpen, setMenuOpen] = useState(windowWidth > 768 ? true : false);
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setMenuOpen(window.innerWidth > 768);
+        };
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
         <Container>
@@ -96,7 +93,7 @@ function Navbar({
                     justifyContent: "space-between",
                     alignItems: "center",
                     gap: "10px",
-                    width: windowWidth > 768 ? "50%" : "100%",
+                    width: menuOpen ? "50%" : "100%",
                 }}
             >
                 <Logo src={logo} />
@@ -105,7 +102,7 @@ function Navbar({
                     size="2em"
                     onClick={() => setMenuOpen(!menuOpen)}
                     style={{
-                        display: windowWidth > 768 ? "none" : "block",
+                        display: window.innerWidth > 768 ? "none" : "block",
                     }}
                 />
             </div>
@@ -119,6 +116,7 @@ function Navbar({
                     <MenuItem onClick={scrollToContato}>Contato</MenuItem>
                 </Menu>
             )}
+
             <MenuButton onClick={scrollToForm}>Pedir orçamento</MenuButton>
         </Container>
     );
