@@ -64,7 +64,7 @@ function Preco({ scrollToForm }) {
 
             <PriceWrapper>
                 <PriceText>À partir de</PriceText>
-                <Price>R$ 100,00</Price>
+                <Price>R$ 300,00</Price>
             </PriceWrapper>
 
             <PriceButton onClick={scrollToForm}>Peça um orçamento</PriceButton>
