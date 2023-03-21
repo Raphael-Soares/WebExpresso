@@ -1,6 +1,9 @@
-import { useState, useEffect } from "react";
-import styled from "styled-components";
+import { useState } from "react";
+
 import logo from "../assets/logodark.svg";
+
+import styled from "styled-components";
+
 import { AiOutlineMenu } from "react-icons/ai";
 
 const Container = styled.nav`
@@ -9,10 +12,9 @@ const Container = styled.nav`
     align-items: center;
     justify-content: space-between;
     font-weight: bold;
-    padding: 0 5vw;
+    padding: 0 5dvw;
     gap: 10%;
     font-family: "Courier New", Courier, monospace;
-
     @media (max-width: 768px) {
         flex-direction: column;
     }
@@ -28,7 +30,6 @@ const Menu = styled.div`
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: flex-start;
@@ -41,7 +42,6 @@ const MenuItem = styled.div`
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
-
     @media (max-width: 768px) {
         margin: 10px 0;
         font-family: "Helvetica", sans-serif;
@@ -59,7 +59,6 @@ const MenuButton = styled.button`
     cursor: pointer;
     font-size: 16px;
     font-family: "Courier New", Courier, monospace;
-
     @media (max-width: 768px) {
         margin: 1em;
         width: 100%;
