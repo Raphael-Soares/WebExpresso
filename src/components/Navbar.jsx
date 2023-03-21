@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import logo from "../assets/logodark.svg";
 
@@ -73,16 +73,8 @@ function Navbar({
     scrollToForm,
     scrollToContato,
 }) {
-    const [menuOpen, setMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setMenuOpen(window.innerWidth > 768);
-        };
-        window.addEventListener("resize", handleResize);
-        handleResize();
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    const windowWidth = window.innerWidth;
+    const [menuOpen, setMenuOpen] = useState(windowWidth > 768 ? true : false);
 
     return (
         <Container>
@@ -92,7 +84,7 @@ function Navbar({
                     justifyContent: "space-between",
                     alignItems: "center",
                     gap: "10px",
-                    width: menuOpen ? "50%" : "100%",
+                    width: windowWidth > 768 ? "50%" : "100%",
                 }}
             >
                 <Logo src={logo} />
@@ -101,7 +93,7 @@ function Navbar({
                     size="2em"
                     onClick={() => setMenuOpen(!menuOpen)}
                     style={{
-                        display: window.innerWidth > 768 ? "none" : "block",
+                        display: windowWidth > 768 ? "none" : "block",
                     }}
                 />
             </div>
@@ -115,7 +107,6 @@ function Navbar({
                     <MenuItem onClick={scrollToContato}>Contato</MenuItem>
                 </Menu>
             )}
-
             <MenuButton onClick={scrollToForm}>Pedir orçamento</MenuButton>
         </Container>
     );
