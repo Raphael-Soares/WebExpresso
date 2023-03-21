@@ -36,8 +36,6 @@ const PriceWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: left;
-
-    /* border: 1px solid #0018f2; */
 `;
 
 const PriceButton = styled.button`

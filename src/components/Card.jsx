@@ -1,12 +1,10 @@
-import React from "react";
+import React, { memo, useState, useEffect } from "react";
 import styled from "styled-components";
 
 const CardWrapper = styled.div`
     background-color: #f9f9f9;
-
     border-radius: 10px;
     width: 100%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,9 +13,8 @@ const CardWrapper = styled.div`
 
 const CardImage = styled.img`
     width: 100%;
-    height: 100%;
+    height: auto;
     max-height: 200px;
-
     object-fit: cover;
     border-radius: 10px 10px 0 0;
 `;
@@ -36,14 +33,28 @@ const CardText = styled.p`
     margin: 1rem;
 `;
 
+const PlaceholderImage = styled.div`
+    width: 100%;
+    height: 200px;
+    background-color: #c4c4c4;
+    border-radius: 10px 10px 0 0;
+`;
+
 function Card({ image, title, text }) {
+    const [imageLoaded, setImageLoaded] = useState(false);
+    useEffect(() => {
+        const imageLoader = new Image();
+        imageLoader.src = image;
+        imageLoader.onload = () => setImageLoaded(true);
+    }, [image]);
+
     return (
         <CardWrapper>
-            <CardImage src={image} />
+            {imageLoaded ? <CardImage src={image} alt={title} /> : <PlaceholderImage />}
             <CardTitle>{title}</CardTitle>
             <CardText>{text}</CardText>
         </CardWrapper>
     );
 }
 
-export default Card;
+export default memo(Card);

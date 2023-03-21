@@ -14,7 +14,6 @@ const userID = "W1NXJfm2l6E3WbKxh";
 const Container = styled.form`
     display: flex;
     flex-direction: column;
-
     padding: 5vw;
 `;
 
@@ -22,11 +21,9 @@ const Row = styled.div`
     display: flex;
     flex-direction: row;
     gap: 1rem;
-
     & > div {
         flex: 1;
     }
-
     @media (max-width: 768px) {
         flex-direction: column;
     }
@@ -52,11 +49,9 @@ const Button = styled.button`
     color: #fff;
     font-size: 18px;
     font-weight: bold;
-
     width: 100%;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
-
     &:hover {
         background-color: #0013bb;
     }

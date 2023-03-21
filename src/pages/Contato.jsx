@@ -4,24 +4,28 @@ import { FaEnvelope, FaPhone, FaInstagram } from "react-icons/fa";
 
 const ContactContainer = styled.div`
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     background-color: #f5f1edff;
     padding: 20px 5vw;
 
     @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
+        padding: 20px 10px;
     }
 `;
 
 const ContactItem = styled.div`
     display: flex;
+    flex-direction: row;
     align-items: center;
     font-size: 20px;
     color: #666;
     margin-right: 30px;
+
+    @media (max-width: 768px) {
+        margin-bottom: 10px;
+    }
 `;
 
 const ContactLink = styled.a`
@@ -29,6 +33,7 @@ const ContactLink = styled.a`
     align-items: center;
     color: #666;
     text-decoration: none;
+    transition: color 0.3s;
 
     &:hover {
         color: #0018f2;
